@@ -14,15 +14,15 @@ namespace updateCliente.TestUpdate
     [TestClass]
     public class UnitTest1
     {
-        public UnitTest1()
-        {
-            //
-            // TODO: Agregar aquí la lógica del constructor
-            updateCliente.UpdateCliente plugin = new updateCliente.UpdateCliente();
-            plugin.insertInAx(new Guid("3833960E-2957-DF11-AF5B-005056972CA5"), CRMLogin.createService(), "contact");
-            /// insertInAx(entity.Id, serviceProxy, entity.LogicalName)
-            //
-        }
+        //public UnitTest1()
+        //{
+        //    //
+        //    // TODO: Agregar aquí la lógica del constructor
+        //    updateCliente.UpdateCliente plugin = new updateCliente.UpdateCliente();
+        //    plugin.insertInAx(new Guid("DC3A142F-1CF2-E611-A5F1-005056851F55"), CRMLogin.createService(), "contact");//account
+        //    /// insertInAx(entity.Id, serviceProxy, entity.LogicalName)
+        //    //
+        //}
 
         private TestContext testContextInstance;
 
@@ -30,17 +30,17 @@ namespace updateCliente.TestUpdate
         ///Obtiene o establece el contexto de las pruebas que proporciona
         ///información y funcionalidad para la ejecución de pruebas actual.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        //public TestContext TestContext
+        //{
+        //    get
+        //    {
+        //        return testContextInstance;
+        //    }
+        //    set
+        //    {
+        //        testContextInstance = value;
+        //    }
+        //}
 
         #region Atributos de prueba adicionales
         //
@@ -67,9 +67,8 @@ namespace updateCliente.TestUpdate
         [TestMethod]
         public void TestMethod1()
         {
-            //
-            // TODO: Agregar aquí la lógica de las pruebas
-            //
+            updateCliente.UpdateCliente plugin = new updateCliente.UpdateCliente();//FEA9C8EC-314D-E711-A8DC-005056855416
+            plugin.insertInAx(new Guid("DC3A142F-1CF2-E611-A5F1-005056851F55"), CRMLogin.createService(), "account");
         }
     }
 }

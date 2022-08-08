@@ -19,7 +19,7 @@ namespace updateCliente
 
         private string organizacion;
         //private string DomainLogonName;
-        private string DomainLogonName = "adpeco\\jcenm";
+        private string DomainLogonName = "BEPENSA\\manguas";
         public void Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
@@ -42,7 +42,8 @@ namespace updateCliente
                                                 "fib_address3_line1","fib_coloniaid3","fib_address3_postalcode",
                                                 "fib_address4_line1","fib_coloniaid4","fib_address4_postalcode",
                                                 "telephone2","mobilephone","emailaddress1","fib_impuestosaplicables","customertypecode",
-                                                    "fib_estatus", "fib_formadepagoid", "fib_digitos", "fib_correoelectronicoadicional","fib_paisdenacimientoid"
+                                                    "fib_estatus", "fib_formadepagoid", "fib_digitos", "fib_correoelectronicoadicional","fib_paisdenacimientoid",
+                                                    "fib_usocomprobanteid", "fib_regimenfiscalid", "fib_codigopostalcfdi", "fib_razonsocialcfdi", "gendercode"
                                                 }; // RGomezS - 4 dígitos - 27/06/2013
 
                 Entity entity = (Entity)context.InputParameters["Target"];
@@ -92,7 +93,9 @@ namespace updateCliente
             string resultado = "";
             String nomcliente = "", codigocliente = "", rfc = "", curp = "", calle = "", colonia = "", cp = "", calle2 = "", colonia2 = "", cp2 = "", calle3 = "", colonia3 = "", cp3 = "", conClie = "",
                    nombrecontacto = "", telefono1 = "", telefono2 = "", email = "", impuestos = "", nomdir1 = "Dirección Fiscal", nomdir2 = "Dirección Adicional 1", nomdir3 = "Dirección Adicional 2",
-                   nom1 = "", nom2 = "", apellidop = "", apellidom = "", formapago = "", digitos = "", email2 = "", nacionalidad = "";//JCEn 14/05/2015 // RGomezS - 05/07/2013
+                   nom1 = "", nom2 = "", apellidop = "", apellidom = "", formapago = "", digitos = "", email2 = "", nacionalidad = "",//JCEn 14/05/2015 // RGomezS - 05/07/2013
+                   usoComprobanteCodigo = string.Empty, regimenFiscalCodigo = string.Empty, codigoPostal = string.Empty, razonSocial = string.Empty, genero = string.Empty;
+
             Guid idcolonia, idlinea, idformapago;
             idlinea = new Guid();
 
@@ -146,7 +149,9 @@ namespace updateCliente
                                                 "address2_line1","fib_coloniaid2","address2_postalcode","fib_address3_line1","fib_coloniaid3",
                                                 "fib_address3_postalcode","fib_apellidopaterno","fib_apellidomaterno","address1_primarycontactname",
                                                 "fib_segundonombre","telephone3","fax","emailaddress1","fib_impuestoaplicable",
-                                                "fib_formadepagoid","fib_digitos","fib_correoelectronicoadicional"}; // RGomezS
+                                                "fib_formadepagoid","fib_digitos","fib_correoelectronicoadicional", // RGomezS 
+                                                "fib_usocomprobanteid", "fib_regimenfiscalid", "fib_codigopostalcfdi", "fib_razonsocialcfdi"}; 
+
                     cadFetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'> " +
                                   "      <entity name='account'>" +
                                   "          <attribute name='accountnumber' />" +
@@ -173,6 +178,10 @@ namespace updateCliente
                                   "          <attribute name='fib_digitos' />" +
                                   "          <attribute name='fib_correoelectronicoadicional' />" +
                                   "          <attribute name='fib_tipodepersonamoral' />" +
+                                  "          <attribute name='fib_usocomprobanteid' />" +
+                                  "          <attribute name='fib_regimenfiscalid' />" +
+                                  "          <attribute name='fib_codigopostalcfdi' />" +
+                                  "          <attribute name='fib_razonsocialcfdi' />" +
                                   "		     <filter type='and'>" +
                                   "              <condition attribute='accountid' operator='eq' value='" + idCliente.ToString() + "' />" +
                                   "          </filter>" +
@@ -312,6 +321,27 @@ namespace updateCliente
                     digitos = cliente[0]["fib_digitos"] != null ? cliente[0]["fib_digitos"].ToString() : "";
                     email2 = cliente[0]["fib_correoelectronicoadicional"] != null ? cliente[0]["fib_correoelectronicoadicional"].ToString() : "";
                     // RGomezS <-
+
+                    if (cliente[0]["fib_usocomprobanteid"] != null)
+                    {
+                        var usoComprobanteId = new Guid(cliente[0]["fib_usocomprobanteid"].ToString());
+
+                        var hashTable = ObtenCodigoUsoComprobante(servicio, usoComprobanteId);
+
+                        usoComprobanteCodigo = hashTable[0]["fib_codigo"].ToString();
+                    }
+
+                    if (cliente[0]["fib_regimenfiscalid"] != null)
+                    {
+                        var regimenFiscalId = new Guid(cliente[0]["fib_regimenfiscalid"].ToString());
+
+                        var hashTable = ObtenCodigoRegimen(servicio, regimenFiscalId);
+
+                        regimenFiscalCodigo = hashTable[0]["fib_codigo"].ToString();
+                    }
+
+                    codigoPostal = cliente[0]["fib_codigopostalcfdi"] != null ? cliente[0]["fib_codigopostalcfdi"].ToString() : string.Empty;
+                    razonSocial = cliente[0]["fib_razonsocialcfdi"] != null ? cliente[0]["fib_razonsocialcfdi"].ToString() : string.Empty;
                 }
                 else
                 {
@@ -320,7 +350,8 @@ namespace updateCliente
                                                 "fib_address3_line1","fib_coloniaid3","fib_address3_postalcode",
                                                 "fib_address4_line1","fib_coloniaid4","fib_address4_postalcode",
                                                 "telephone2","mobilephone","emailaddress1","fib_impuestosaplicables","customertypecode",
-                                                "fib_formadepagoid","fib_digitos","fib_correoelectronicoadicional","fib_paisdenacimientoid"}; // RGomezS
+                                                "fib_formadepagoid","fib_digitos","fib_correoelectronicoadicional","fib_paisdenacimientoid",
+                                                "fib_usocomprobanteid", "fib_regimenfiscalid", "fib_codigopostalcfdi", "gendercode"}; // RGomezS
 
                     cadFetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'> " +
                               "      <entity name='contact'>" +
@@ -349,6 +380,10 @@ namespace updateCliente
                               "          <attribute name='fib_digitos' />" +
                               "          <attribute name='fib_correoelectronicoadicional' />" +
                               "          <attribute name='fib_paisdenacimientoid' />" +
+                              "          <attribute name='fib_usocomprobanteid' />" +
+                              "          <attribute name='fib_regimenfiscalid' />" +
+                              "          <attribute name='fib_codigopostalcfdi' />" +
+                              "          <attribute name='gendercode' />" +
                               "		     <filter type='and'>" +
                               "              <condition attribute='contactid' operator='eq' value='" + idCliente.ToString() + "' />" +
                               "          </filter>" +
@@ -518,6 +553,31 @@ namespace updateCliente
                         nacionalidad = codigopais[0]["new_codigopais"].ToString();
                     }
                     ///JCEN
+                    
+
+                    if (cliente[0]["fib_usocomprobanteid"] != null)
+                    {
+                        var usoComprobanteId = new Guid(cliente[0]["fib_usocomprobanteid"].ToString());
+                        
+                        var hashTable = ObtenCodigoUsoComprobante(servicio, usoComprobanteId);
+
+                        usoComprobanteCodigo = hashTable[0]["fib_codigo"].ToString();
+                    }
+
+                    if (cliente[0]["fib_regimenfiscalid"] != null)
+                    {
+                        var regimenFiscalId = new Guid(cliente[0]["fib_regimenfiscalid"].ToString());
+
+                        var hashTable = ObtenCodigoRegimen(servicio, regimenFiscalId);
+
+                        regimenFiscalCodigo = hashTable[0]["fib_codigo"].ToString();
+                    }
+
+                    codigoPostal = cliente[0]["fib_codigopostalcfdi"] != null ? cliente[0]["fib_codigopostalcfdi"].ToString() : string.Empty;
+
+                    if (cliente[0]["gendercode"] != null)
+                        genero = cliente[0]["gendercode"].ToString() == "1" ? "M" : "F";
+                    
                 }
 
                 try
@@ -531,12 +591,16 @@ namespace updateCliente
                     InfoConexion info;
 
                     object[] params1 = { codigocliente, nomcliente, nomcliente, "MXN", "", "", impuestos, rfc, curp, nomdir1,calle, colonia.Trim(), cp, nomdir2,calle2, colonia2.Trim(), cp2, nomdir3, calle3, colonia3.Trim(), cp3, nombrecontacto, telefono1, telefono2, email, conClie,
-                                       nom1,nom2,apellidop,apellidom, formapago,digitos,email2,nacionalidad }; // RGomezS
+                                       nom1,nom2,apellidop,apellidom, formapago,digitos,email2,nacionalidad, // RGomezS
+                                        usoComprobanteCodigo, regimenFiscalCodigo, razonSocial, codigoPostal, genero }; 
+
                     StringWriter strWriter = new StringWriter();
                     XmlSerializer serializer = new XmlSerializer(params1.GetType());
                     serializer.Serialize(strWriter, params1);
                     string resultXml = strWriter.ToString();
                     strWriter.Close();
+
+                    List<string> errors = new List<string>();
 
                     //MCASTROL Este metodo debe de replicar en ambas compañías de AX
                     /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
@@ -544,16 +608,28 @@ namespace updateCliente
                     info = infoUrl.First;
                     axws.Url = infoUrl.Second.ToString();
                     resultado = axws.altaCliente(this.DomainLogonName, resultXml, info);
-                    
+
+                    if (!resultado.Contains("Exito"))
+                        errors.Add("Compañia " + info.empresa + " :" + resultado);
+
                     infoUrl = this.getInfoConexion(servicio, 2);
                     info = infoUrl.First;
                     axws.Url = infoUrl.Second.ToString();
                     resultado = axws.altaCliente(this.DomainLogonName, resultXml, info);
 
+                    if (!resultado.Contains("Exito"))
+                        errors.Add("Compañia " + info.empresa + " :" + resultado);
+
                     infoUrl = this.getInfoConexion(servicio, 3);
                     info = infoUrl.First;
                     axws.Url = infoUrl.Second.ToString();
                     resultado = axws.altaCliente(this.DomainLogonName, resultXml, info);
+
+                    if (!resultado.Contains("Exito"))
+                        errors.Add("Compañia " + info.empresa + " :" + resultado);
+
+                    if (errors.Any())
+                        throw new Exception(string.Join("|", errors));
                     /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
 
                     //resultado = axws.altaCliente(this.DomainLogonName, resultXml, info);
@@ -787,6 +863,43 @@ namespace updateCliente
             {
                 throw new Exception("ASIGNE EL TIPO DE PRODUCTO AL ESQUEMA DE LOS PRODUCTOS DE ESTE CLIENTE.");
             }
+        }
+
+        private List<Hashtable> ObtenCodigoUsoComprobante(IOrganizationService servicio, Guid usoComprobanteId)
+        {
+            string[] atributos = new string[1] { "fib_codigo" };
+            
+            string fetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>       " +
+                "<entity name='fib_usocomprobante'>          " +
+                "<attribute name='fib_codigo' />\t\t     " +
+                "<filter type='and'>              " +
+                "<condition attribute='fib_usocomprobanteid' operator='eq' value='" + usoComprobanteId.ToString() + "' />          " +
+                "</filter>      " +
+                "</entity>  " +
+                "</fetch>";
+
+            var request = new ExecuteFetchRequest { FetchXml = fetch };
+            var response = (ExecuteFetchResponse)servicio.Execute(request);
+            return this.XmlToMap(response.FetchXmlResult, atributos);
+        }
+
+        private List<Hashtable> ObtenCodigoRegimen(IOrganizationService servicio, Guid regimenFiscalId)
+        {
+            string[] atributos = new string[1] { "fib_codigo" };
+            
+            string fetch = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>       " +
+                "<entity name='fib_regimenfiscal'>          " +
+                "<attribute name='fib_codigo' />        " +
+                "<filter type='and'>              " +
+                "<condition attribute='fib_regimenfiscalid' operator='eq' value='" + regimenFiscalId.ToString() + "' />          " +
+                "</filter>      " +
+                "</entity>  " +
+                "</fetch>";
+
+            var request = new ExecuteFetchRequest { FetchXml = fetch };
+            var response = (ExecuteFetchResponse)servicio.Execute(request);
+
+            return this.XmlToMap(response.FetchXmlResult, atributos);
         }
     }
 }
