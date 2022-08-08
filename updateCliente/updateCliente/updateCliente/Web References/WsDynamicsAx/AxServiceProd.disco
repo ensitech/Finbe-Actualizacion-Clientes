@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx?wsdl" docRef="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" xmlns:q1="http://bepensa.net/" binding="q1:AxServiceProdSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" xmlns:q2="http://bepensa.net/" binding="q2:AxServiceProdSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

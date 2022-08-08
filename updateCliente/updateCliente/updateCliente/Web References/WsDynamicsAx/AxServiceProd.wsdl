@@ -1,0 +1,1555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bepensa.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://bepensa.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bepensa.net/">
+      <s:element name="altaCredito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userdomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="calEventos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="calTasas" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InfoConexion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dominio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="servidor" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="altaCreditoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaCreditoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userdomian" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaProductoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaLinea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaLineaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaLineaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaGarantias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlCal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaGarantiasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaGarantiasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertaComisiones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertaComisionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertaComisionesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertaGastos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertaGastosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertaGastosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getValTasa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getValTasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getValTasaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTipoCambio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTipoCambioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTipoCambioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="contabilizaEvento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="instancia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="contabilizaEventoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contabilizaEventoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaOc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="encabezado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaOcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaOcResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaPoliza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descrip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="altaPolizaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="altaPolizaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRefProsa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cvecred" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refprosa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refbanacaria" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRefProsaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateRefProsaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePropietario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="creditoax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="propietario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePropietarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePropietarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getImpProdReisnt">
+        <s:complexType />
+      </s:element>
+      <s:element name="getImpProdReisntResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getImpProdReisntResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existVendAx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="alias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existVendAxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="existVendAxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existVendAx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="alias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existVendAx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="existVendAx2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="asignaVendAx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vends" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="asignaVendAxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="asignaVendAxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOpenPeriodo">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOpenPeriodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOpenPeriodoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransAxFil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecini" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecfin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransAxFilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTransAxFilResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransAxFil2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecini" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecfin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransAxFil2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTransAxFil2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSerializado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="info" type="tns:InfoConexion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateConfClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonPrueba">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonPruebaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="altaCreditoSoapIn">
+    <wsdl:part name="parameters" element="tns:altaCredito" />
+  </wsdl:message>
+  <wsdl:message name="altaCreditoSoapOut">
+    <wsdl:part name="parameters" element="tns:altaCreditoResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:altaCliente" />
+  </wsdl:message>
+  <wsdl:message name="altaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:altaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:altaProducto" />
+  </wsdl:message>
+  <wsdl:message name="altaProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:altaProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaLineaSoapIn">
+    <wsdl:part name="parameters" element="tns:altaLinea" />
+  </wsdl:message>
+  <wsdl:message name="altaLineaSoapOut">
+    <wsdl:part name="parameters" element="tns:altaLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaGarantiasSoapIn">
+    <wsdl:part name="parameters" element="tns:altaGarantias" />
+  </wsdl:message>
+  <wsdl:message name="altaGarantiasSoapOut">
+    <wsdl:part name="parameters" element="tns:altaGarantiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertaComisionesSoapIn">
+    <wsdl:part name="parameters" element="tns:insertaComisiones" />
+  </wsdl:message>
+  <wsdl:message name="insertaComisionesSoapOut">
+    <wsdl:part name="parameters" element="tns:insertaComisionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertaGastosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertaGastos" />
+  </wsdl:message>
+  <wsdl:message name="insertaGastosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertaGastosResponse" />
+  </wsdl:message>
+  <wsdl:message name="getValTasaSoapIn">
+    <wsdl:part name="parameters" element="tns:getValTasa" />
+  </wsdl:message>
+  <wsdl:message name="getValTasaSoapOut">
+    <wsdl:part name="parameters" element="tns:getValTasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTipoCambioSoapIn">
+    <wsdl:part name="parameters" element="tns:getTipoCambio" />
+  </wsdl:message>
+  <wsdl:message name="getTipoCambioSoapOut">
+    <wsdl:part name="parameters" element="tns:getTipoCambioResponse" />
+  </wsdl:message>
+  <wsdl:message name="contabilizaEventoSoapIn">
+    <wsdl:part name="parameters" element="tns:contabilizaEvento" />
+  </wsdl:message>
+  <wsdl:message name="contabilizaEventoSoapOut">
+    <wsdl:part name="parameters" element="tns:contabilizaEventoResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaOcSoapIn">
+    <wsdl:part name="parameters" element="tns:altaOc" />
+  </wsdl:message>
+  <wsdl:message name="altaOcSoapOut">
+    <wsdl:part name="parameters" element="tns:altaOcResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaPolizaSoapIn">
+    <wsdl:part name="parameters" element="tns:altaPoliza" />
+  </wsdl:message>
+  <wsdl:message name="altaPolizaSoapOut">
+    <wsdl:part name="parameters" element="tns:altaPolizaResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRefProsaSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRefProsa" />
+  </wsdl:message>
+  <wsdl:message name="updateRefProsaSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRefProsaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePropietarioSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePropietario" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePropietarioSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePropietarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="getImpProdReisntSoapIn">
+    <wsdl:part name="parameters" element="tns:getImpProdReisnt" />
+  </wsdl:message>
+  <wsdl:message name="getImpProdReisntSoapOut">
+    <wsdl:part name="parameters" element="tns:getImpProdReisntResponse" />
+  </wsdl:message>
+  <wsdl:message name="existVendAxSoapIn">
+    <wsdl:part name="parameters" element="tns:existVendAx" />
+  </wsdl:message>
+  <wsdl:message name="existVendAxSoapOut">
+    <wsdl:part name="parameters" element="tns:existVendAxResponse" />
+  </wsdl:message>
+  <wsdl:message name="existVendAx2SoapIn">
+    <wsdl:part name="parameters" element="tns:existVendAx2" />
+  </wsdl:message>
+  <wsdl:message name="existVendAx2SoapOut">
+    <wsdl:part name="parameters" element="tns:existVendAx2Response" />
+  </wsdl:message>
+  <wsdl:message name="asignaVendAxSoapIn">
+    <wsdl:part name="parameters" element="tns:asignaVendAx" />
+  </wsdl:message>
+  <wsdl:message name="asignaVendAxSoapOut">
+    <wsdl:part name="parameters" element="tns:asignaVendAxResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOpenPeriodoSoapIn">
+    <wsdl:part name="parameters" element="tns:getOpenPeriodo" />
+  </wsdl:message>
+  <wsdl:message name="getOpenPeriodoSoapOut">
+    <wsdl:part name="parameters" element="tns:getOpenPeriodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFilSoapIn">
+    <wsdl:part name="parameters" element="tns:getTransAxFil" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFilSoapOut">
+    <wsdl:part name="parameters" element="tns:getTransAxFilResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFil2SoapIn">
+    <wsdl:part name="parameters" element="tns:getTransAxFil2" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFil2SoapOut">
+    <wsdl:part name="parameters" element="tns:getTransAxFil2Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateConfCliente" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateConfClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogonPruebaSoapIn">
+    <wsdl:part name="parameters" element="tns:LogonPrueba" />
+  </wsdl:message>
+  <wsdl:message name="LogonPruebaSoapOut">
+    <wsdl:part name="parameters" element="tns:LogonPruebaResponse" />
+  </wsdl:message>
+  <wsdl:message name="altaProductoHttpGetIn">
+    <wsdl:part name="userdomian" type="s:string" />
+    <wsdl:part name="xmlSerializado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="altaProductoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getValTasaHttpGetIn">
+    <wsdl:part name="instancia" type="s:string" />
+    <wsdl:part name="xmlSerializado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getValTasaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTipoCambioHttpGetIn">
+    <wsdl:part name="instancia" type="s:string" />
+    <wsdl:part name="xmlSerializado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTipoCambioHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="altaOcHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="encabezado" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="altaOcHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="altaPolizaHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="descrip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="altaPolizaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getImpProdReisntHttpGetIn" />
+  <wsdl:message name="getImpProdReisntHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAxHttpGetIn">
+    <wsdl:part name="alias" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAxHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAx2HttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="alias" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAx2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="asignaVendAxHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="vends" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="asignaVendAxHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getOpenPeriodoHttpGetIn" />
+  <wsdl:message name="getOpenPeriodoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFilHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="fecini" type="s:string" />
+    <wsdl:part name="fecfin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFilHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFil2HttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="empresa" type="s:string" />
+    <wsdl:part name="fecini" type="s:string" />
+    <wsdl:part name="fecfin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFil2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogonPruebaHttpGetIn">
+    <wsdl:part name="u" type="s:string" />
+    <wsdl:part name="d" type="s:string" />
+    <wsdl:part name="e" type="s:string" />
+    <wsdl:part name="s" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogonPruebaHttpGetOut" />
+  <wsdl:message name="altaProductoHttpPostIn">
+    <wsdl:part name="userdomian" type="s:string" />
+    <wsdl:part name="xmlSerializado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="altaProductoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getValTasaHttpPostIn">
+    <wsdl:part name="instancia" type="s:string" />
+    <wsdl:part name="xmlSerializado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getValTasaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTipoCambioHttpPostIn">
+    <wsdl:part name="instancia" type="s:string" />
+    <wsdl:part name="xmlSerializado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTipoCambioHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="altaOcHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="encabezado" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="altaOcHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="altaPolizaHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="descrip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="altaPolizaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getImpProdReisntHttpPostIn" />
+  <wsdl:message name="getImpProdReisntHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAxHttpPostIn">
+    <wsdl:part name="alias" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAxHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAx2HttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="alias" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="existVendAx2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="asignaVendAxHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="vends" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="asignaVendAxHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getOpenPeriodoHttpPostIn" />
+  <wsdl:message name="getOpenPeriodoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFilHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="fecini" type="s:string" />
+    <wsdl:part name="fecfin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFilHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFil2HttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="empresa" type="s:string" />
+    <wsdl:part name="fecini" type="s:string" />
+    <wsdl:part name="fecfin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransAxFil2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogonPruebaHttpPostIn">
+    <wsdl:part name="u" type="s:string" />
+    <wsdl:part name="d" type="s:string" />
+    <wsdl:part name="e" type="s:string" />
+    <wsdl:part name="s" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogonPruebaHttpPostOut" />
+  <wsdl:portType name="AxServiceProdSoap">
+    <wsdl:operation name="altaCredito">
+      <wsdl:input message="tns:altaCreditoSoapIn" />
+      <wsdl:output message="tns:altaCreditoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaCliente">
+      <wsdl:input message="tns:altaClienteSoapIn" />
+      <wsdl:output message="tns:altaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaProducto">
+      <wsdl:input message="tns:altaProductoSoapIn" />
+      <wsdl:output message="tns:altaProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaLinea">
+      <wsdl:input message="tns:altaLineaSoapIn" />
+      <wsdl:output message="tns:altaLineaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaGarantias">
+      <wsdl:input message="tns:altaGarantiasSoapIn" />
+      <wsdl:output message="tns:altaGarantiasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertaComisiones">
+      <wsdl:input message="tns:insertaComisionesSoapIn" />
+      <wsdl:output message="tns:insertaComisionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertaGastos">
+      <wsdl:input message="tns:insertaGastosSoapIn" />
+      <wsdl:output message="tns:insertaGastosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <wsdl:input message="tns:getValTasaSoapIn" />
+      <wsdl:output message="tns:getValTasaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <wsdl:input message="tns:getTipoCambioSoapIn" />
+      <wsdl:output message="tns:getTipoCambioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="contabilizaEvento">
+      <wsdl:input message="tns:contabilizaEventoSoapIn" />
+      <wsdl:output message="tns:contabilizaEventoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <wsdl:input message="tns:altaOcSoapIn" />
+      <wsdl:output message="tns:altaOcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <wsdl:input message="tns:altaPolizaSoapIn" />
+      <wsdl:output message="tns:altaPolizaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRefProsa">
+      <wsdl:input message="tns:updateRefProsaSoapIn" />
+      <wsdl:output message="tns:updateRefProsaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePropietario">
+      <wsdl:input message="tns:UpdatePropietarioSoapIn" />
+      <wsdl:output message="tns:UpdatePropietarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <wsdl:input message="tns:getImpProdReisntSoapIn" />
+      <wsdl:output message="tns:getImpProdReisntSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <wsdl:input message="tns:existVendAxSoapIn" />
+      <wsdl:output message="tns:existVendAxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <wsdl:input message="tns:existVendAx2SoapIn" />
+      <wsdl:output message="tns:existVendAx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <wsdl:input message="tns:asignaVendAxSoapIn" />
+      <wsdl:output message="tns:asignaVendAxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <wsdl:input message="tns:getOpenPeriodoSoapIn" />
+      <wsdl:output message="tns:getOpenPeriodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <wsdl:input message="tns:getTransAxFilSoapIn" />
+      <wsdl:output message="tns:getTransAxFilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <wsdl:input message="tns:getTransAxFil2SoapIn" />
+      <wsdl:output message="tns:getTransAxFil2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfCliente">
+      <wsdl:input message="tns:UpdateConfClienteSoapIn" />
+      <wsdl:output message="tns:UpdateConfClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <wsdl:input message="tns:LogonPruebaSoapIn" />
+      <wsdl:output message="tns:LogonPruebaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AxServiceProdHttpGet">
+    <wsdl:operation name="altaProducto">
+      <wsdl:input message="tns:altaProductoHttpGetIn" />
+      <wsdl:output message="tns:altaProductoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <wsdl:input message="tns:getValTasaHttpGetIn" />
+      <wsdl:output message="tns:getValTasaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <wsdl:input message="tns:getTipoCambioHttpGetIn" />
+      <wsdl:output message="tns:getTipoCambioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <wsdl:input message="tns:altaOcHttpGetIn" />
+      <wsdl:output message="tns:altaOcHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <wsdl:input message="tns:altaPolizaHttpGetIn" />
+      <wsdl:output message="tns:altaPolizaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <wsdl:input message="tns:getImpProdReisntHttpGetIn" />
+      <wsdl:output message="tns:getImpProdReisntHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <wsdl:input message="tns:existVendAxHttpGetIn" />
+      <wsdl:output message="tns:existVendAxHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <wsdl:input message="tns:existVendAx2HttpGetIn" />
+      <wsdl:output message="tns:existVendAx2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <wsdl:input message="tns:asignaVendAxHttpGetIn" />
+      <wsdl:output message="tns:asignaVendAxHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <wsdl:input message="tns:getOpenPeriodoHttpGetIn" />
+      <wsdl:output message="tns:getOpenPeriodoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <wsdl:input message="tns:getTransAxFilHttpGetIn" />
+      <wsdl:output message="tns:getTransAxFilHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <wsdl:input message="tns:getTransAxFil2HttpGetIn" />
+      <wsdl:output message="tns:getTransAxFil2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <wsdl:input message="tns:LogonPruebaHttpGetIn" />
+      <wsdl:output message="tns:LogonPruebaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AxServiceProdHttpPost">
+    <wsdl:operation name="altaProducto">
+      <wsdl:input message="tns:altaProductoHttpPostIn" />
+      <wsdl:output message="tns:altaProductoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <wsdl:input message="tns:getValTasaHttpPostIn" />
+      <wsdl:output message="tns:getValTasaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <wsdl:input message="tns:getTipoCambioHttpPostIn" />
+      <wsdl:output message="tns:getTipoCambioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <wsdl:input message="tns:altaOcHttpPostIn" />
+      <wsdl:output message="tns:altaOcHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <wsdl:input message="tns:altaPolizaHttpPostIn" />
+      <wsdl:output message="tns:altaPolizaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <wsdl:input message="tns:getImpProdReisntHttpPostIn" />
+      <wsdl:output message="tns:getImpProdReisntHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <wsdl:input message="tns:existVendAxHttpPostIn" />
+      <wsdl:output message="tns:existVendAxHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <wsdl:input message="tns:existVendAx2HttpPostIn" />
+      <wsdl:output message="tns:existVendAx2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <wsdl:input message="tns:asignaVendAxHttpPostIn" />
+      <wsdl:output message="tns:asignaVendAxHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <wsdl:input message="tns:getOpenPeriodoHttpPostIn" />
+      <wsdl:output message="tns:getOpenPeriodoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <wsdl:input message="tns:getTransAxFilHttpPostIn" />
+      <wsdl:output message="tns:getTransAxFilHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <wsdl:input message="tns:getTransAxFil2HttpPostIn" />
+      <wsdl:output message="tns:getTransAxFil2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <wsdl:input message="tns:LogonPruebaHttpPostIn" />
+      <wsdl:output message="tns:LogonPruebaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AxServiceProdSoap" type="tns:AxServiceProdSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="altaCredito">
+      <soap:operation soapAction="http://bepensa.net/altaCredito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaCliente">
+      <soap:operation soapAction="http://bepensa.net/altaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaProducto">
+      <soap:operation soapAction="http://bepensa.net/altaProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaLinea">
+      <soap:operation soapAction="http://bepensa.net/altaLinea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaGarantias">
+      <soap:operation soapAction="http://bepensa.net/altaGarantias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertaComisiones">
+      <soap:operation soapAction="http://bepensa.net/insertaComisiones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertaGastos">
+      <soap:operation soapAction="http://bepensa.net/insertaGastos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <soap:operation soapAction="http://bepensa.net/getValTasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <soap:operation soapAction="http://bepensa.net/getTipoCambio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contabilizaEvento">
+      <soap:operation soapAction="http://bepensa.net/contabilizaEvento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <soap:operation soapAction="http://bepensa.net/altaOc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <soap:operation soapAction="http://bepensa.net/altaPoliza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRefProsa">
+      <soap:operation soapAction="http://bepensa.net/updateRefProsa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePropietario">
+      <soap:operation soapAction="http://bepensa.net/UpdatePropietario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <soap:operation soapAction="http://bepensa.net/getImpProdReisnt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <soap:operation soapAction="http://bepensa.net/existVendAx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <soap:operation soapAction="http://bepensa.net/existVendAx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <soap:operation soapAction="http://bepensa.net/asignaVendAx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <soap:operation soapAction="http://bepensa.net/getOpenPeriodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <soap:operation soapAction="http://bepensa.net/getTransAxFil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <soap:operation soapAction="http://bepensa.net/getTransAxFil2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfCliente">
+      <soap:operation soapAction="http://bepensa.net/UpdateConfCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <soap:operation soapAction="http://bepensa.net/LogonPrueba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AxServiceProdSoap12" type="tns:AxServiceProdSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="altaCredito">
+      <soap12:operation soapAction="http://bepensa.net/altaCredito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaCliente">
+      <soap12:operation soapAction="http://bepensa.net/altaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaProducto">
+      <soap12:operation soapAction="http://bepensa.net/altaProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaLinea">
+      <soap12:operation soapAction="http://bepensa.net/altaLinea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaGarantias">
+      <soap12:operation soapAction="http://bepensa.net/altaGarantias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertaComisiones">
+      <soap12:operation soapAction="http://bepensa.net/insertaComisiones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertaGastos">
+      <soap12:operation soapAction="http://bepensa.net/insertaGastos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <soap12:operation soapAction="http://bepensa.net/getValTasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <soap12:operation soapAction="http://bepensa.net/getTipoCambio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contabilizaEvento">
+      <soap12:operation soapAction="http://bepensa.net/contabilizaEvento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <soap12:operation soapAction="http://bepensa.net/altaOc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <soap12:operation soapAction="http://bepensa.net/altaPoliza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRefProsa">
+      <soap12:operation soapAction="http://bepensa.net/updateRefProsa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePropietario">
+      <soap12:operation soapAction="http://bepensa.net/UpdatePropietario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <soap12:operation soapAction="http://bepensa.net/getImpProdReisnt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <soap12:operation soapAction="http://bepensa.net/existVendAx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <soap12:operation soapAction="http://bepensa.net/existVendAx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <soap12:operation soapAction="http://bepensa.net/asignaVendAx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <soap12:operation soapAction="http://bepensa.net/getOpenPeriodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <soap12:operation soapAction="http://bepensa.net/getTransAxFil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <soap12:operation soapAction="http://bepensa.net/getTransAxFil2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfCliente">
+      <soap12:operation soapAction="http://bepensa.net/UpdateConfCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <soap12:operation soapAction="http://bepensa.net/LogonPrueba" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AxServiceProdHttpGet" type="tns:AxServiceProdHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="altaProducto">
+      <http:operation location="/altaProducto" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <http:operation location="/getValTasa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <http:operation location="/getTipoCambio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <http:operation location="/altaOc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <http:operation location="/altaPoliza" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <http:operation location="/getImpProdReisnt" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <http:operation location="/existVendAx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <http:operation location="/existVendAx2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <http:operation location="/asignaVendAx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <http:operation location="/getOpenPeriodo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <http:operation location="/getTransAxFil" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <http:operation location="/getTransAxFil2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <http:operation location="/LogonPrueba" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AxServiceProdHttpPost" type="tns:AxServiceProdHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="altaProducto">
+      <http:operation location="/altaProducto" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValTasa">
+      <http:operation location="/getValTasa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipoCambio">
+      <http:operation location="/getTipoCambio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaOc">
+      <http:operation location="/altaOc" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="altaPoliza">
+      <http:operation location="/altaPoliza" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImpProdReisnt">
+      <http:operation location="/getImpProdReisnt" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx">
+      <http:operation location="/existVendAx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existVendAx2">
+      <http:operation location="/existVendAx2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asignaVendAx">
+      <http:operation location="/asignaVendAx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenPeriodo">
+      <http:operation location="/getOpenPeriodo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil">
+      <http:operation location="/getTransAxFil" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransAxFil2">
+      <http:operation location="/getTransAxFil2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonPrueba">
+      <http:operation location="/LogonPrueba" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AxServiceProd">
+    <wsdl:port name="AxServiceProdSoap" binding="tns:AxServiceProdSoap">
+      <soap:address location="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AxServiceProdSoap12" binding="tns:AxServiceProdSoap12">
+      <soap12:address location="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AxServiceProdHttpGet" binding="tns:AxServiceProdHttpGet">
+      <http:address location="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AxServiceProdHttpPost" binding="tns:AxServiceProdHttpPost">
+      <http:address location="http://srvaxpbas3.mdaote.bepensa.local:8091/AxServiceProd.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
